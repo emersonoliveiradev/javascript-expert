@@ -36,6 +36,12 @@ class View {
         videoGrid.append(div)
     }
 
+    setParticipants(count) {
+        const myself = 1
+        const participants = document.getElementById("participants")
+        participants.innerHTML = (count + myself)
+    }
+
     renderVideo({userId, stream=null, url=null, isCurrentId=false, muted=true}) {
         const video = this.createVideoElement({muted, src: url, srcObject: stream})
         this.appendToHTMLTree(userId, video, isCurrentId)
