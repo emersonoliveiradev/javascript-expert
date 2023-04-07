@@ -16,7 +16,7 @@ class PeerBuilder {
     return this;
   }
 
-  setOnCallClose(fn ) {
+  setOnCallClose(fn) {
     this.onCallClose = fn;
     return this;
   }
@@ -55,14 +55,14 @@ class PeerBuilder {
     const peerCall = PeerCustomModule.prototype.call;
     const context = this;
     PeerCustomModule.prototype.call = function (id, stream) {
-      const call = peerCall.apply(this, [id, stream])
+      const call = peerCall.apply(this, [id, stream]);
       // Interceptar a call e add eventos
-      context._prepareCallEvent(call)
-      
-      return call
+      context._prepareCallEvent(call);
+
+      return call;
     };
 
-    return PeerCustomModule
+    return PeerCustomModule;
   }
 
   build() {
