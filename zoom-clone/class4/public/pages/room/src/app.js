@@ -2,15 +2,18 @@ const onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const room = urlParams.get("room");
   console.log("this is the room", room);
-
-  const socketUrl = "http://localhost:3000";
+  
+  // const socketUrl = "http://localhost:3000";
+  const socketUrl = "provided-url";
   const socketBuilder = new SocketBuilder({ socketUrl });
 
   const peerConfig = Object.values({
     id: undefined,
     config: {
-      port: 9000,
-      host: "localhost",
+      host: "provided-url-with-no-https",
+      secure: true,
+      // port: 9000,
+      // host: "localhost",
       path: "/",
     },
   });
